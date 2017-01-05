@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script lang="javascript" src="libs/angular.min.js"></script>
+
+    </head>
+    <body ng-app="myapp">
+        <div ng-controller="demoScope">
+            Nhap vao ten ban
+            <input type="text"  value="" ng-model="username">
+            <button ng-click="sayHello()">In thong bao</button>
+            <hr>
+            {{greeting}}
+        </div>
+    
+    <script>
+        angular.module("myapp",[])
+        .controller("demoScope", ["$scope", function($scope){
+            $scope.sayHello = function(){
+                $scope.greeting = "Xin chao "+$scope.username +" !";
+            };
+        }]);
+    </script>
+    </body>
+</html>

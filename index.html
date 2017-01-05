@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script lang="javascript" src="libs/angular.min.js"></script>
+    </head>
+    <body>
+        <div ng-app="myapp">
+            <div ng-controller="HeaderController">
+                <h2>Xin Chao {{data.title}} den voi {{data.website}}</h2>
+            </div>
+            <script>
+                angular.module("myapp",[]).controller("HeaderController", function($scope){
+                    $scope.data = {
+                        title : "Huy",
+                        website : "smartdev.vn"
+                    };
+                });
+            </script>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+         <script lang="javascript" src="libs/angular.min.js"></script>
+    </head>
+    <body ng-app="myapp">
+        <div ng-controller="demoController3">
+            <p>
+                Chu so huu : {{data.fullname}}<br>
+                Email : {{data.email}} <br>
+                Dien Thoai : {{data.phone}} <br>
+                Chu De : {{data.chude}} <br>
+                Website : {{data.website}} <bß>
+
+            </p>
+        </div>
+
+        <!--xu li java script anglular-->
+        <script>
+            angular.module("myapp", []).controller("demoController3", function($scope){
+                $scope.data = {
+                    fullname : "Le Vu Huy",
+                    email    : "democontrolelr3@gmail.com",
+                    phone    : "0124242233",
+                    chude    : "Angular js",
+                    website  : "freetuts.com"
+                };
+            });
+        </script>
+    </body>
+</html>
