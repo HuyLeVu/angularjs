@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script lang="javascript" src="libs/angular.min.js"></script>
+        <title>ng-model-options trong angular</title>
+
+        <script>
+            angular.module("myapp", [])
+            .controller("optionsController",["$scope", function($scope){
+
+            }])
+            .controller("usingOptionsController",["$scope", function($scope){
+
+            }])
+            .controller("usingOptionsControllerDebounce", ["$scope", function($scope){
+
+            }])
+            .controller("usingOptionsControllerGetterSetter", ["$scope", function($scope){
+                var _name = "Smartdev.vn";
+                $scope.user = {
+                    name4 : function(newName){
+                        return angular.isDefined(newName) ? (_name = newName) : _name;
+                    }
+                }
+            }]);
+        </script>
+    </head>
+    <body ng-app="myapp">
+        <div ng-controller="optionsController">
+            <form name="userForm">
+                <h5>Nhap noi dung cua ban vao</h5>
+                <input type="text" name="userName" ng-model="user.name"><br>
+                <h5>Chuoi ban nhap la</h5>
+                <span ng-bind="user.name"></span><br>
+            </form>
+        </div>
+        <h3>SU DUNG ng-model-options(updateOn)</h3>
+
+        <div ng-controller="usingOptionsController">
+            <form name="userForm2">
+                <h5>Nhap noi dung cua ban vao</h5>
+                <input type="text" name="userName2" ng-model-options="{updateOn:'blur'}"
+                    ng-model="user.name2"><br>
+                <h5>Chuoi ban nhap la</h5>
+                <span ng-bind="user.name2"></span>
+            </form>
+        </div>
+
+        <h3>SU DUNG ng-model-options(debounce)</h3>
+
+        <div ng-controller="usingOptionsControllerDebounce">
+            <form name="userForm3">
+                <h5>Nhap noi dung cua ban vao</h5>
+                <input type="text" name="userName3" ng-model-options="{debounce:'1000'}"
+                    ng-model="user.name3"><br>
+                <h5>Chuoi ban nhap la</h5>
+                <span ng-bind="user.name3"></span>
+            </form>
+        </div>
+
+        <h3>SU DUNG ng-model-options(getterSetter)</h3>
+
+         <div ng-controller="usingOptionsControllerGetterSetter">
+            <form name="userForm4">
+                <h5>Nhap noi dung cua ban vao</h5>
+                <input type="text" name="userName4" ng-model-options="{getterSetter: true}"
+                    ng-model="user.name4"><br>
+                <h5>Chuoi ban nhap la</h5>
+                <span ng-bind="user.name4()"></span>
+            </form>
+        </div>
+    </body>
+</html>

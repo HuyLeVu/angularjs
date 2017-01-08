@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script lang="javascript" src="libs/angular.min.js"></script>
+
+        <script>
+            anglular.module('myapp', [])
+                .controller('myController', ['$scope', function($scope){
+                    $scope.list =[];
+                    $scope.submit = function(){
+                        // neu có nội dung thì lưa vào list
+                        if($scope.text){
+                            $scope.list.push(this.text);
+                            // Đồng thời xoá nội dung trong input
+                            $scope.text = '';
+                        }
+                    };
+                }] );
+        </script>
+    </head>
+    <body ng-app="myapp">
+        <form ng-submit="submit ()" ng-controller="myController">
+            Nhap ten sinh vien
+            <input type="text" ng-model="text" name="text"/>
+            <input type="submit" id="submit" value="Them" /> <br>
+            Danh sách sinh vien:<pre>list = {{list}}</pre>
+        </form>
+    </body>
+</html>

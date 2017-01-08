@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script lang="javascript" src="libs/angular.min.js"></script>
+        <script lang="javascript" src="libs/angular-sanitize.js"></script>
+        <title>ng-bind-html</title>
+
+        <script>
+            angular.module("myapp", ["ngSanitize"])
+            .controller("MyController", ["$scope", function($scope){
+
+            }])
+            .controller("ExampleController", ["$scope", function($scope){
+
+            }]);
+        </script>
+    </head>
+    <body ng-app="myapp">
+        <div ng-controller="MyController">
+            <input type="text" ng-model="myHTML">
+            <p ng-bind-html="myHTML"></p>
+        </div>
+
+        <div ng-controller="ExampleController">
+            Name <input type="text" ng-model="name"><br>
+            Website: <input type="text" ng-model="website"><br>
+            <pre ng-bind-template="{{name}} {{website}}!"></pre>
+        </div>
+    </body>
+</html>
