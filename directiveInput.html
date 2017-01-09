@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script lang="javascript" src="libs/angular.min.js"></script>
+        
+        <style>
+            .ng-invalid {
+                color: red;
+            }
+        </style>
+
+        <script>
+            angular.module("myapp", [])
+            .controller("formController", ["$scope", function($scope){
+                // submit thi ham nay chay
+                $scope.login = function(){
+                    if($scope.user.username == "admin" && $scope.user.password == "123456"){
+                        alert("Login success !")
+                    } else {
+                         alert("Login that bai !")
+                    }
+                }
+            }]);
+        </script>
+    </head>
+    <body ng-app="myapp">
+        <h3>Form dang nhap</h3>
+        <form ng-controller="formController" ng-submit="login()">
+            Username : <br> <input type="text" name="username" ng-pattern="/^([a-zA-Z0-9]+)$/"
+                            ng-model="user.username" required ng-trim="true" ng-minlength="3" ng-maxlength="10"/> <br>
+            Password : <br><input type="password" name="password" ng-pattern="/^([a-zA-Z0-9]+)$/"
+                            ng-model="user.password" ng-trim="true" ng-minlength="3" ng-maxlength="10"/> <br>
+            <input type="submit" name="submit"  value="Login"/>
+        </form>
+    </body>
+</html>
