@@ -5,26 +5,36 @@
     <title>Ng-model</title>
     <script lang="javascript" src="libs/angular.min.js"></script>
     <style>
-        .my-input {
-            -webkit-transition:all linear 0.5s;
-            transition:all linear 0.5s;
-            background: transparent;
-        }
-        .my-input.ng-invalid {
-            color:white;
-            background: red;
-        }
+
     </style>
     <script>
         angular.module("myapp", [])
-                .controller("MyController", function($scope){
-
-                });
+                .controller("MyController", ["$scope", function($scope){
+                    $scope.message = {
+                        title : " Tinh toan ",
+                        num1  : " So thu nhat ",
+                        num2  : " So thu 2 ",
+                        cong  : " Cong hai so ",
+                        tru   : " Tru hai so ",
+                        nhan  : " Nhan hai so ",
+                        chia  : " Chia hai so ",
+                    };
+                    $scope.styleresult = "display:none";
+                }]);
     </script>
 </head>
-<body ng-app="myapp">
-    <form name="testForm" ng-controller = "MyController" action="">
-        <input  type="text" ng-model="val" ng-pattern="/^\d+$/" name="test" class="my-input">
+<body ng-app="myForm">
+    <form name="calForm" ng-controller = "MyController" action="">
+        {{message.title}}
+        {{message.num1}}
+        <input  type="text" ng-model="stn" ng-pattern="/^\d+$/" name="stn" class="my-input"><br>
+        {{message.num2}}
+        <input  type="text" ng-model="stn" ng-pattern="/^\d+$/" name="stn" class="my-input"><br>
+        {{message.cong}}<br>
+        {{message.tru}}<br>
+        {{message.nhan}}<br>
+        {{message.chia}}<br>
+
     </form>
 </body>
 </html>

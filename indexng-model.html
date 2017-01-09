@@ -2,9 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+    <title>Ng-model</title>
+    <script lang="javascript" src="libs/angular.min.js"></script>
+    <style>
+        .my-input {
+            -webkit-transition:all linear 0.5s;
+            transition:all linear 0.5s;
+            background: transparent;
+        }
+        .my-input.ng-invalid {
+            color:white;
+            background: red;
+        }
+    </style>
+    <script>
+        angular.module("myapp", [])
+                .controller("MyController", function($scope){
 
+                });
+    </script>
+</head>
+<body ng-app="myapp">
+    <form name="testForm" ng-controller = "MyController" action="">
+        <input  type="text" ng-model="val" ng-pattern="/^\d+$/" name="test" class="my-input">
+    </form>
 </body>
 </html>
+<!--ng-model hay còn gọi là ngModel là một Directive dùng để liên kết dữ liệu với client,
+ nghĩa là nó thường được dùng để cho người dùng nhập liệu nên ta hay sử dụng trong FORM html. -->
